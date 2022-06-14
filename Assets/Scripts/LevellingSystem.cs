@@ -7,20 +7,20 @@ using UnityEngine;
 /// </summary>
 public class LevellingSystem : MonoBehaviour
 {
-    public int curretLevel; // Our current level.
+    public int currentLevel; // Our current level.
 
     public int currentXp; // The current amount of xp we have accumulated.
 
-    public int currentXPThreshold = 10; // The amount of xp required to level up.
+    public int currentXPThreshold = 100; // The amount of xp required to level up.
 
     private void Start()
     {
         // set our current level to one.
-        
+        currentLevel = 1;
         // set our current XP to zero
-
+        currentXp = 0;
         // set our current XP Threshold to be our level multiplied by our 100.
-        
+        int xpThreshhold = currentXPThreshold * currentLevel;
         // Debug out our starting values of our level, xp and current xp threshold
 
         // Increase the current XP by one hundred.
