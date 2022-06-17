@@ -11,24 +11,35 @@ public class LevellingSystem : MonoBehaviour
 
     public int currentXp; // The current amount of xp we have accumulated.
 
-    public int currentXPThreshold = 100; // The amount of xp required to level up.
+    public int currentXPThreshold; // The amount of xp required to level up.
 
-    private void Start()
+    public void Start()
     {
-        // set our current level to one.
-        currentLevel = 1;
-        // set our current XP to zero
-        currentXp = 0;
-        // set our current XP Threshold to be our level multiplied by our 100.
-        int xpThreshhold = currentXPThreshold * currentLevel;
-        // Debug out our starting values of our level, xp and current xp threshold
+        
+        {
+            // set our current level to one.
+            currentLevel = 1;
+            // set our current XP to zero
+            currentXp = 0;
+            // set our current XP Threshold to be our level multiplied by our 100.
+            currentXPThreshold = currentLevel * 100;
+            // Debug out our starting values of our level, xp and current xp threshold
+            Debug.Log("Current Level is " + currentLevel + ". Current xp is" + currentXp + ". Current xp threshold is " + currentXPThreshold + ".");
 
-        // Increase the current XP by one hundred.
 
-        // Debug out our current XP.
+            // Increase the current XP by one hundred.
+            currentXp = 100;
+            // Debug out our current XP.
+            Debug.Log("Current xp is " + currentXp + ".");
+            // check if our current XP is more than our threshold.
+            if (currentXp >= currentXPThreshold)
+            {
+                currentLevel = currentLevel + 1;
+                currentXPThreshold = currentLevel * 100;
+                Debug.Log("Level is now " + currentLevel + ". Current xp is " +currentXp+ " New XP threshold is " + currentXPThreshold);
+            }
 
-        // check if our current XP is more than our threshold.
-
+        }
                 // if it is, then let's increase out level by one.
                 // let's also increase recalculate our current xp threshold as we've levelled up.
                 // Debug out our new level value, as well as our current XP and our next Threshold we need to hit.
